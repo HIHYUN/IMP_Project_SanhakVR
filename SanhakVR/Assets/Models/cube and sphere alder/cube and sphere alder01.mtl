@@ -1,0 +1,14 @@
+# Blender MTL File: 'cube and sphere alder01.blend'
+# Material Count: 1
+
+newmtl wood_alder
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.027273 0.027273 0.027273
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 5.700000 .
+map_Kd cube and sphere alder.textures\\Image_0.jpg
