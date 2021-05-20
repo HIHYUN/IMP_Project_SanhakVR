@@ -28,6 +28,7 @@ public class TriggerCubeAnimation : MonoBehaviour
         {
             AlertMotion.Pause();
             transform.Rotate(Vector3.one * 45 * Time.deltaTime, Space.World);
+            transform.localScale = Vector3.one * 7;
         }
     }
 }

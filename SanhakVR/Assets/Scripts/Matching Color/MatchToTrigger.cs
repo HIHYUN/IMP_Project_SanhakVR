@@ -33,9 +33,6 @@ public class MatchToTrigger : MonoBehaviour
         if (other.gameObject.tag == matchtag)
         {
             Destroy(this.gameObject);
-
-            other.gameObject.transform.localScale = Vector3.one * 7;
-
             Color color = other.gameObject.transform.GetComponent<Renderer>().material.color;
             color.a = 1;
             other.gameObject.GetComponent<Renderer>().material.color = color;
