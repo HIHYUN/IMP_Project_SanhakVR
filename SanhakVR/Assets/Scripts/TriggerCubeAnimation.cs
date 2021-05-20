@@ -1,54 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using DG.Tweening;
 
 public class TriggerCubeAnimation : MonoBehaviour
 {
  
     private Sequence AlertMotion;
-    private string matchtag;
 
     private void Start() 
     {
-        
-        switch(this.name)
-        {
-            case "Red Sign":
-                matchtag = "Red Cube";
-                break;
-            case "Yellow Sign":
-                matchtag = "Yellow Cube";
-                break;
-            case "Orange Sign":
-                matchtag = "Orange Cube";
-                break;
-            case "Blue Sign":
-                matchtag = "Blue Cube";
-                break;
-            default:
-                break;
-        }
         AlertMotion = DOTween.Sequence();
 
         AlertMotion.SetAutoKill(false)
-                    .Append(transform.DOScale(25, 1f).From(20, true))
-                    .Append(transform.DOScale(25,1f).From())
+                    .Append(transform.DOScale(10, 1f).From(7, true))
+                    .Append(transform.DOScale(10,1f).From())
                     .SetLoops(-1, LoopType.Restart);
     }
     private void OnEnable() 
     {
         AlertMotion.Restart();
     }
-
-    private void OnCollisionEnter(Collision other) 
+    private void Update() 
     {
-        if (other.gameObject.tag == matchtag)
+        if(this.GetComponent<Renderer>().material.color.a == 1)
         {
-            Destroy(other.gameObject.GetComponent<Rigidbody>());
-            other.transform.position = transform.position;
-            Destroy(this.gameObject);
+            AlertMotion.Pause();
+            transform.Rotate(Vector3.one * 45 * Time.deltaTime, Space.World);
         }
     }
-    
 }
