@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8804054551962371890}
   - component: {fileID: 1883846400788123624}
   - component: {fileID: 197648019560706529}
-  - component: {fileID: -6887859984470746392}
-  - component: {fileID: -5350977436800897257}
+  - component: {fileID: 9197858074530887756}
+  - component: {fileID: -5593672348501561834}
   m_Layer: 0
-  m_Name: Simple Cube
+  m_Name: Yellow Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4537260325656042253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 24.217737, y: 24.217737, z: 24.217737}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5454018960110241641, guid: 883dbb61ce1c0d340a71ebcae1394211, type: 3}
+  - {fileID: 2100000, guid: a024baa215a5c4849af61992825351ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-6887859984470746392
+--- !u!65 &9197858074530887756
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,19 +96,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-5350977436800897257
-Rigidbody:
+--- !u!114 &-5593672348501561834
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4537260325656042253}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165b7aa377a336840a0af4cf84343eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
