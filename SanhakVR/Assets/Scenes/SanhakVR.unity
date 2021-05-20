@@ -394,7 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1fa2236ce3d5146876f2458fbbf540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signPrefabs: []
+  signPrefabs:
+  - {fileID: 4537260325656042253, guid: 8e8f5aa231ac2aa40988631f9f861135, type: 3}
 --- !u!1001 &913308324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 8804054551962371890, guid: 8534ce567e059f647bbf2a3a79356a90,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.32
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8804054551962371890, guid: 8534ce567e059f647bbf2a3a79356a90,
         type: 3}

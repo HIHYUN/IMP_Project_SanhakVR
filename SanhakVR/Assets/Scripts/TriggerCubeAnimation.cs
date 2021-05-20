@@ -8,6 +8,7 @@ public class TriggerCubeAnimation : MonoBehaviour
  
     private Sequence AlertMotion;
     private string matchtag;
+
     private void Start() 
     {
         
@@ -28,16 +29,15 @@ public class TriggerCubeAnimation : MonoBehaviour
             default:
                 break;
         }
-
         AlertMotion = DOTween.Sequence();
 
         AlertMotion.SetAutoKill(false)
                     .Append(transform.DOScale(25, 1f).From(20, true))
                     .Append(transform.DOScale(25,1f).From())
                     .SetLoops(-1, LoopType.Restart);
-        
     }
-    private void OnEnable() {
+    private void OnEnable() 
+    {
         AlertMotion.Restart();
     }
 
