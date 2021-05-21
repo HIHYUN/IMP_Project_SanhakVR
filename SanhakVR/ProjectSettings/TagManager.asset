@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Blue Sign
-  - Red Sign
-  - Yellow Sign
-  - Orange Sign
+  - Red Cube
+  - Blue Cube
+  - Yellow Cube
+  - Orange Cube
+  - RedSign
+  - Ground
   layers:
   - Default
   - TransparentFX
