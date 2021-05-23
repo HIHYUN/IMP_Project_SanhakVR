@@ -13,14 +13,16 @@ public class Water : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Ground")
+        print(collision.collider.tag);
+
+        if (collision.collider.tag == "FlipTarget")
         {
             bottle.isGround = true;
         }
     }
 
     private void OnCollisionExit() 
-    {
+    {   
         bottle.isGround = false;
     }
 }

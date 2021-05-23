@@ -15,9 +15,4 @@ public static class ExtensionMethods
 
         return null;
     }
-
-    public static void SetZ(this Vector3 vector3, float z)
-    {
-        vector3 = new Vector3(vector3.x, vector3.y, z);
-    }
 }

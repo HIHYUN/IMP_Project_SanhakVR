@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bottle : Grab
+public class Bottle : Grab, IPuzzle
 {
+    [SerializeField]
+    private Stage stage;
+
     [SerializeField]
     private bool isStand;
 
@@ -17,10 +20,10 @@ public class Bottle : Grab
     private bool isDone = false;
 
     [SerializeField]
-    private Vector3 lastScalar;
+    private Vector3 lastVector;
 
     [SerializeField]
-    private Vector3 firstScalar;
+    private Vector3 firstVector;
 
     [SerializeField]
     private Vector3 standRotation;
@@ -28,9 +31,12 @@ public class Bottle : Grab
     [SerializeField]
     private float time;
     private float currenttime = 0;
-
+    private bool isSolved = false;
     private void Start()
     {
+        stage = StageController.Instance.activeStage;
+
+        stage.addPuzzle(this);
         standRotation = transform.localRotation.eulerAngles;
 
         interactable.
@@ -39,7 +45,7 @@ public class Bottle : Grab
                 isGrab = true;
                 beenRotate = false;
 
-                lastScalar = Vector3.zero;
+                lastVector = Vector3.zero;
             });
 
         interactable.
@@ -47,8 +53,8 @@ public class Bottle : Grab
             AddListener(call => {
                 isGrab = false;
 
-                lastScalar = transform.forward;
-                firstScalar = transform.forward;
+                lastVector = transform.forward;
+                firstVector = transform.forward;
                
                 if (rotateCoroutine != null)
                     StopCoroutine(rotateCoroutine);
@@ -62,14 +68,14 @@ public class Bottle : Grab
     {
         while (!isGrab && !isGround)
         {
-            Vector3 currentScalar = transform.forward;
-            var angle = Vector3.Angle(currentScalar, lastScalar);
+            Vector3 currentVector = transform.forward;
+            var angle = Vector3.Angle(currentVector, lastVector);
 
             if (angle > 0.01f)
             {
-                lastScalar = currentScalar;
+                lastVector = currentVector;
 
-                var finalAngle = Vector3.Angle(firstScalar, lastScalar) ;
+                var finalAngle = Vector3.Angle(firstVector, lastVector) ;
                 if (finalAngle >= 100)
                     beenRotate = true;
             }
@@ -79,9 +85,12 @@ public class Bottle : Grab
 
     private void Update()
     {
+        if (isSolved) return;
+
         if (isDone) 
         {
-            print("Clear!");
+            isSolved = true;
+            enabled = true;
             return;
         }
 
@@ -124,14 +133,8 @@ public class Bottle : Grab
         isDone = true;
     }
 
-    private void OnCollisionEnter(Collision collision) 
+    public bool IsSolved()
     {
-        if (collision.collider.tag == "Ground")
-            isGround = true;
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        isGround = false;
+        return isSolved;
     }
 }
