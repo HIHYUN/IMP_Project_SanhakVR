@@ -40,6 +40,11 @@ public class Stage : MonoBehaviour
         print(allSolved);
         if (!allSolved)
             allSolved = Notify();
+
+        else
+        {
+            StageController.Instance.MoveNext();
+        }
     }
 
     public void addPuzzle(IPuzzle puzzle)

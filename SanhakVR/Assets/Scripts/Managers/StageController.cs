@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StageController : Singleton<StageController>
 {
+    [SerializeField]
     private List<Stage> _stages = new List<Stage>();
     public List<Stage> stages
     {
@@ -21,6 +22,17 @@ public class StageController : Singleton<StageController>
         }
     }
 
+    public void MoveNext()
+    {
+        int activeIndex = FindActiveIndex();
+
+        if (activeIndex < stages.Count - 1)
+        {
+            activeStage = stages[activeIndex + 1];
+            // Load next scene 
+        }
+    }
+
     public void AddStage(Stage stage)
     {
         if (stage != null)
@@ -30,5 +42,10 @@ public class StageController : Singleton<StageController>
     public void RemoveStage(Stage stage)
     {
         stages.Remove(stage);
+    }
+
+    private int FindActiveIndex()
+    {
+        return stages.FindIndex(stage => stage == activeStage);
     }
 }
