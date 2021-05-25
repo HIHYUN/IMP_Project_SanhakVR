@@ -95,7 +95,11 @@ public class Bottle : Grab, IPuzzle
         }
 
         CheckIsStanding();
+        CheckSolved();
+    }
 
+    private void CheckSolved()
+    {
         if (isStand && isGround && beenRotate)
         {
             if (standingCoroutine == null)
