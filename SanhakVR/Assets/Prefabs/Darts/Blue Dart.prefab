@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8327442552990634064}
   - component: {fileID: 2518186887532241423}
   - component: {fileID: 6118280633916647403}
+  - component: {fileID: 8539303273160339619}
   m_Layer: 0
   m_Name: Blue Dart
   m_TagString: Untagged
@@ -223,3 +224,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.010321555
   m_Center: {x: -0.0072346437, y: 0, z: -0.0025286684}
+--- !u!114 &8539303273160339619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422775650440276859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f64ee29463b13441b317d4bc94c31b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

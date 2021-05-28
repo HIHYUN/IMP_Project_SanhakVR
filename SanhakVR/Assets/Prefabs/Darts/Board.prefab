@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1131643390990212656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6726046078785000019}
+  m_Layer: 0
+  m_Name: Stuck Dart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6726046078785000019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131643390990212656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 39666659812889972}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3228046351102776910
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +137,7 @@ GameObject:
   - component: {fileID: 39666659812889972}
   - component: {fileID: 67566177020302474}
   - component: {fileID: 1958986225896384755}
+  - component: {fileID: -5637051837226116851}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -129,6 +160,7 @@ Transform:
   - {fileID: 1661489380867180000}
   - {fileID: 1090686391318081886}
   - {fileID: 4129666062604313305}
+  - {fileID: 6726046078785000019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,6 +213,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5637051837226116851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3673722184321690483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ad7e6a11a3188499c36e58f9de0c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  stuckdarts: {fileID: 1131643390990212656}
 --- !u!1 &4700647843379777938
 GameObject:
   m_ObjectHideFlags: 0

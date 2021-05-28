@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: -215777641027946757}
   - component: {fileID: 4358630482142878449}
   - component: {fileID: 2027322556972915008}
+  - component: {fileID: -1146349517274123735}
   m_Layer: 0
-  m_Name: Dart_Red001
+  m_Name: Red Dart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,6 +194,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0087257475
   m_Center: {x: -0.0036183447, y: 0, z: 0}
+--- !u!114 &-1146349517274123735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809011925648481991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f64ee29463b13441b317d4bc94c31b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5903926994896373512
 GameObject:
   m_ObjectHideFlags: 0
