@@ -37,7 +37,6 @@ public class Stage : MonoBehaviour
 
     private void Update()
     {
-        print(allSolved);
         if (!allSolved)
             allSolved = Notify();
 
