@@ -16,6 +16,7 @@ public class HandGrabbing : OVRGrabber
     public override void Update()
     {
         base.Update();
+
         CheckPinchIndex();
     }
 
@@ -23,7 +24,7 @@ public class HandGrabbing : OVRGrabber
     {
         float pinchStrength = hand.GetFingerPinchStrength(OVRHand.HandFinger.Index);
 
-        if (m_grabbedObj && pinchStrength > pinchThreshHold && m_grabCandidates.Count > 0)
+        if (!m_grabbedObj && pinchStrength > pinchThreshHold)
         {
             GrabBegin();
         }
