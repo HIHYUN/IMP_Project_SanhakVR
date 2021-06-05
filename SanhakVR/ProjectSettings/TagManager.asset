@@ -21,6 +21,7 @@ TagManager:
   - ring
   - net
   - Bound
+  - Key
   layers:
   - Default
   - TransparentFX
