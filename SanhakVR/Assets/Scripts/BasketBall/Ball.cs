@@ -6,13 +6,20 @@ public class Ball : Grab, IPuzzle
 {
     public Transform ballSpawnPlace;
 
+    [SerializeField]
     private bool isSolved = false;
+    private Stage stage;
+
+    private void Start()
+    {
+        stage = StageController.Instance.activeStage;
+        stage.addPuzzle(this);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("net"))
         {
-            print("GoalIn!");
             isSolved = true;
         }
     }
@@ -22,6 +29,11 @@ public class Ball : Grab, IPuzzle
         print(other.tag);
     }
 
+
+    public void CheckSolved()
+    {
+       
+    }
 
     public bool IsSolved()
     {

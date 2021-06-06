@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using DG.Tweening;
 
-public class TriggerCubeManager : MonoBehaviour
+public class TriggerCubeManager : MonoBehaviour, IPuzzle
 {
     public GameObject clearMessage;
     public List<GameObject> signPrefabs = new List<GameObject>();
     private Sequence instantMotion;
+    private Stage stage;
     public int score;
+
+    [SerializeField]
+    private bool isSolved = false;
+
     private void Start() 
     {
-       
+        stage = StageController.Instance.activeStage;
+        stage.addPuzzle(this);
+
         instantMotion = DOTween.Sequence();
         instantMotion.SetAutoKill(false);
 
@@ -27,10 +34,19 @@ public class TriggerCubeManager : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if(score == transform.childCount)
-        {
-            clearMessage.SetActive(true);
-        }
+    private void Update() 
+    {
+        CheckSolved();   
+    }
+
+    public void CheckSolved()
+    {
+        if (score == transform.childCount)
+            isSolved = true;
+    }
+
+    public bool IsSolved()
+    {
+        return isSolved;
     }
 }

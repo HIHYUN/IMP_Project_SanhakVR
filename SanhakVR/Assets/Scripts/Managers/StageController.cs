@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageController : Singleton<StageController>
 {
@@ -11,6 +12,14 @@ public class StageController : Singleton<StageController>
         get => _stages;
     }
 
+    [SerializeField]
+    private List<string> _stageNames = new List<string>();
+    public List<string> stageNames
+    {
+        get => _stageNames;
+    }
+
+    [SerializeField]
     private Stage _activeStage;
     public Stage activeStage
     {
@@ -22,15 +31,23 @@ public class StageController : Singleton<StageController>
         }
     }
 
+    public enum StageState
+    { 
+        Stage1, Stage2, Stage3
+    }
+
+    public StageState stageState;
+
+    public bool isOnLoad = false;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void MoveNext()
     {
-        int activeIndex = FindActiveIndex();
-
-        if (activeIndex < stages.Count - 1)
-        {
-            activeStage = stages[activeIndex + 1];
-            // Load next scene 
-        }
+        SceneManager.LoadScene((int)stageState+1);
     }
 
     public void AddStage(Stage stage)

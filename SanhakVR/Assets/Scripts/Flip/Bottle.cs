@@ -31,6 +31,8 @@ public class Bottle : Grab, IPuzzle
     [SerializeField]
     private float time;
     private float currenttime = 0;
+
+    [SerializeField]
     private bool isSolved = false;
     private void Start()
     {
@@ -98,7 +100,7 @@ public class Bottle : Grab, IPuzzle
         CheckSolved();
     }
 
-    private void CheckSolved()
+    public void CheckSolved()
     {
         if (isStand && isGround && beenRotate)
         {

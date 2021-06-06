@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class ShootingTarget : MonoBehaviour
 {
-    
     private void OnTriggerEnter(Collider other) 
     {
-        other.gameObject.GetComponent<TargetController>().count ++;
-        Debug.Log(other.gameObject.name);
+        other.gameObject.GetComponent<TargetController>().count++;
     }
 }

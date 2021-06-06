@@ -5,14 +5,26 @@ using UnityEngine;
 public class Stage : MonoBehaviour
 {
     [SerializeField]
+    private string _stageName;
+    public string stageName
+    {
+        get => _stageName;
+        set => _stageName = value;
+    }
+
+    [SerializeField]
     private int _stageNum;
     public int stageNum 
     {
         get => _stageNum;
+
     }
 
+    [SerializeField]
     private bool allSolved = false;
+    private bool isDone = false;
 
+    [SerializeField]
     private List<IPuzzle> _puzzles = new List<IPuzzle>();
     public List<IPuzzle> puzzles
     {
@@ -23,6 +35,8 @@ public class Stage : MonoBehaviour
     {
         foreach (var puzzle in puzzles)
         {
+            print(puzzle.IsSolved());
+
             if (!puzzle.IsSolved())
                 return false;
         }
@@ -33,6 +47,7 @@ public class Stage : MonoBehaviour
     {
         StageController.Instance.AddStage(this);
         StageController.Instance.activeStage = this;
+        StageController.Instance.stageState = (StageController.StageState)stageNum;
     }
 
     private void Update()
@@ -42,7 +57,12 @@ public class Stage : MonoBehaviour
 
         else
         {
-            StageController.Instance.MoveNext();
+            if (!isDone)
+            {
+                isDone = true;
+                StageController.Instance.MoveNext();
+            }
+            
         }
     }
 
