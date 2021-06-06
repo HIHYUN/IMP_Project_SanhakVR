@@ -598,8 +598,20 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &430935074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114925265787909616, guid: 835e735ca71bf78459fb2cababd74112,
+    type: 3}
+  m_PrefabInstance: {fileID: 680101560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430935067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &432959205
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114252240061623322, guid: 835e735ca71bf78459fb2cababd74112,
         type: 3}
+      propertyPath: _ovrMesh
+      value: 
+      objectReference: {fileID: 430935074}
+    - target: {fileID: 114252240061623322, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
       propertyPath: _ovrSkeleton
       value: 
       objectReference: {fileID: 0}
@@ -682,6 +699,26 @@ PrefabInstance:
         type: 3}
       propertyPath: _pointerPoseGO
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137619227449585070, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 442d5b4503ed83c4897ef44659446587, type: 3}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 442d5b4503ed83c4897ef44659446587, type: 3}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
@@ -739,8 +776,20 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &716845758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114925265787909616, guid: 835e735ca71bf78459fb2cababd74112,
+    type: 3}
+  m_PrefabInstance: {fileID: 1191662067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716845751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &747178298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,7 +856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &796188131
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1819,7 +1868,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _ovrMesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 716845758}
     - target: {fileID: 114428879332287356, guid: 835e735ca71bf78459fb2cababd74112,
         type: 3}
       propertyPath: HandType
@@ -1834,6 +1883,26 @@ PrefabInstance:
         type: 3}
       propertyPath: _meshType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137619227449585070, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 88e2e1bfe11ec6c438b0ade27eaeded1, type: 3}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 88e2e1bfe11ec6c438b0ade27eaeded1, type: 3}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614774166731749851, guid: 835e735ca71bf78459fb2cababd74112,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835e735ca71bf78459fb2cababd74112, type: 3}
@@ -2875,6 +2944,7 @@ MonoBehaviour:
   yellowmatch: 0
   clear: {fileID: 801680923}
   key: {fileID: 5682437777309447183}
+  clearDoor: {fileID: 796188130}
 --- !u!4 &1891841440
 Transform:
   m_ObjectHideFlags: 0

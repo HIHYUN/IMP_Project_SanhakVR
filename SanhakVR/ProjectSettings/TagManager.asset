@@ -22,6 +22,7 @@ TagManager:
   - net
   - Bound
   - Key
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class PlateController : MonoBehaviour
 
     public GameObject clear;
     public GameObject key;
+    public GameObject clearDoor;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,7 @@ public class PlateController : MonoBehaviour
         {
             clear.SetActive(true);
             key.SetActive(true);
+            clearDoor.SetActive(true);
         }
     }
 }
