@@ -11,6 +11,7 @@ public class ClearManager : MonoBehaviour
         {
             // Game Clear
             clear.SetActive(true);
+            Destroy(other.gameObject);
             // Application.Quit();
         }    
     }
