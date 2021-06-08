@@ -29,8 +29,6 @@ public class TargetClear : MonoBehaviour, IPuzzle
     }
 
 
-
-
     // Update is called once per frame
     void Update()
     {

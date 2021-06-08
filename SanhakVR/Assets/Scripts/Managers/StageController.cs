@@ -47,7 +47,10 @@ public class StageController : Singleton<StageController>
 
     public void MoveNext()
     {
-        SceneManager.LoadScene((int)stageState+1);
+        int idx = (int)stageState + 1;
+
+        if (idx < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(idx);
     }
 
     public void AddStage(Stage stage)
