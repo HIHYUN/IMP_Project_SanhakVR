@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9127107ebd001845afff3523cd25541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventStream: {fileID: 1296471564919220288, guid: 84f8daecec1a56448b27e7ea8e6d66fe,
+    type: 3}
   ControllerPrefabs:
   - {fileID: 7634514334346526944, guid: 0540e32b498ef284f8e1dcf80dfccd58, type: 3}
   - {fileID: 4245457492171364763, guid: c836783e3928a624e9ff9c70d4f21606, type: 3}
