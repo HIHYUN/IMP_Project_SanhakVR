@@ -50,6 +50,7 @@ public class Stage : MonoBehaviour
 
     private void Update()
     {
+        
         if (!allSolved)
             allSolved = Notify();
 
