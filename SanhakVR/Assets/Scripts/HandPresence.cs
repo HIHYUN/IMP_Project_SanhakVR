@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR;
 
+public class ButtonEvent : UnityEvent<char> {}
 public class HandPresence : MonoBehaviour
 {
+    public ButtonEvent ButtonPress;
     private InputDevice targetDevice;
     public List<GameObject> ControllerPrefabs;
     private GameObject spawnedController;
@@ -15,6 +18,14 @@ public class HandPresence : MonoBehaviour
     public GameObject handmodelPrefabs;
     private GameObject spawnedHandModel;
     private Animator handAnimator;
+
+    private void Awake() 
+    {
+
+        GameObject.FindWithTag("GUI").GetComponent<GUIManager>().ButtonHandler.Add(this);
+        
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +81,36 @@ public class HandPresence : MonoBehaviour
     }
     private void UpdateHandAnimation()
     {
+        bool eventflag = false;
+        char button = ' ';
+        if(targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue) 
+        {
+            eventflag = true;
+            if(ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+            {
+                button = 'X';
+            }
+            if(ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+            {
+                button = 'A';
+            }            
+        }
+        if(targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonValue) && secondaryButtonValue) 
+        {
+            eventflag = true;
+            if(ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+            {
+                button = 'Y';
+            }
+            if(ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+            {
+                button = 'B';
+            }            
+        }
+        if (eventflag) 
+        {
+            ButtonPress.Invoke(button);
+        }
         if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue) && triggerValue > 0.1f)
         {
             // Set Animator Parameter Trggier value
