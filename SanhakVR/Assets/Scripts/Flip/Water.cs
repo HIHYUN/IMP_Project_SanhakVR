@@ -15,7 +15,7 @@ public class Water : MonoBehaviour
     {
         print(collision.collider.tag);
 
-        if (collision.collider.tag == "FlipTarget")
+        if (collision.collider.tag == "Ground")
         {
             bottle.isGround = true;
         }

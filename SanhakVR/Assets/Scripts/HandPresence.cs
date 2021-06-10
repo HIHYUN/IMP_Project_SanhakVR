@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-public class ButtonEvent : UnityEvent<char> {}
 public class HandPresence : MonoBehaviour
 {
-    public ButtonEvent ButtonPress;
+    public UnityEvent<char> ButtonPress;
     private InputDevice targetDevice;
     public List<GameObject> ControllerPrefabs;
+
+    public char button;
+
     private GameObject spawnedController;
 
     // kind of controller
@@ -21,11 +23,9 @@ public class HandPresence : MonoBehaviour
 
     private void Awake() 
     {
-
-        GameObject.FindWithTag("GUI").GetComponent<GUIManager>().ButtonHandler.Add(this);
-        
+        var gui = GameObject.FindWithTag("GUI").GetComponent<GUIManager>();
+        gui.HandInit(this);
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -79,39 +79,77 @@ public class HandPresence : MonoBehaviour
             handAnimator = spawnedHandModel.GetComponent<Animator>();
         }
     }
+
+    //private void ButtonEvent()
+    //{
+    //    bool eventflag = false;
+    //    if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue)
+    //    {
+    //        eventflag = true;
+    //        if (ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+    //        {
+    //            button = 'X';
+    //        }
+    //        if (ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+    //        {
+    //            button = 'A';
+    //        }
+    //    }
+    //    if (targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonValue) && secondaryButtonValue)
+    //    {
+    //        eventflag = true;
+    //        if (ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+    //        {
+    //            button = 'Y';
+    //        }
+    //        if (ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+    //        {
+    //            button = 'B';
+    //        }
+    //    }
+    //    if (eventflag)
+    //    {
+    //        ButtonPress.Invoke(button);
+    //    }
+    //}
+
     private void UpdateHandAnimation()
     {
-        bool eventflag = false;
-        char button = ' ';
-        if(targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue) 
+        //ButtonEvent();
+
+        var eventflag = false;
+        var button = ' ';
+
+        if (targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue) && primaryButtonValue)
         {
             eventflag = true;
-            if(ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+            if (ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
             {
                 button = 'X';
             }
-            if(ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+            if (ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
             {
                 button = 'A';
-            }            
+            }
         }
-        if(targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonValue) && secondaryButtonValue) 
+        if (targetDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool secondaryButtonValue) && secondaryButtonValue)
         {
             eventflag = true;
-            if(ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
+            if (ControllerCharacteristic == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
             {
                 button = 'Y';
             }
-            if(ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
+            if (ControllerCharacteristic == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
             {
                 button = 'B';
-            }            
+            }
         }
-        if (eventflag) 
+        if (eventflag)
         {
             ButtonPress.Invoke(button);
         }
-        if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue) && triggerValue > 0.1f)
+
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue) && triggerValue > 0.1f)
         {
             // Set Animator Parameter Trggier value
             handAnimator.SetFloat("Trigger", triggerValue);
