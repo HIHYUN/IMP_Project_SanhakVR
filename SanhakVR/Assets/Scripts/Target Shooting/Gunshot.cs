@@ -13,6 +13,7 @@ public class Gunshot : MonoBehaviour
     private void Start() 
     {
         audioSource = GetComponent<AudioSource>();
+        SoundManager.Instance.AddEffect(audioSource);
     }
 
     public void Fire()
@@ -21,6 +22,7 @@ public class Gunshot : MonoBehaviour
 
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * bulletHole.forward;
 
+        audioSource.Stop();
         audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 5);
     }

@@ -9,9 +9,12 @@ public class ClearManager : MonoBehaviour, IPuzzle
     private Stage stage;
     private bool isSolved = false;
 
+    public DoorObject door;
+
     public void CheckSolved()
     {
-        
+        if (door.isOpen)
+            isSolved = true;
     }
 
     public bool IsSolved()
@@ -19,20 +22,15 @@ public class ClearManager : MonoBehaviour, IPuzzle
         return isSolved;
     }
 
-    private void OnCollisionEnter(Collision other) 
-    {
-        if(other.gameObject.CompareTag("Key"))
-        {
-            // Game Clear
-            clear.SetActive(true);
-            Destroy(other.gameObject);
-            // Application.Quit();
-        }    
-    }
-
     private void Start()
     {
         stage = StageController.Instance.activeStage;
         stage.addPuzzle(this);
+        gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        CheckSolved();
     }
 }

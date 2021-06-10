@@ -35,8 +35,6 @@ public class Stage : MonoBehaviour
     {
         foreach (var puzzle in puzzles)
         {
-            print(puzzle.IsSolved());
-
             if (!puzzle.IsSolved())
                 return false;
         }

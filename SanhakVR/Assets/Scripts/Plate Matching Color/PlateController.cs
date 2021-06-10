@@ -9,8 +9,8 @@ public class PlateController : MonoBehaviour
     public bool yellowmatch;
 
     public GameObject clear;
-    public GameObject key;
-    public GameObject clearDoor;
+    public GameObject doorAndKey;
+
 
     // Update is called once per frame
     void Update()
@@ -18,8 +18,7 @@ public class PlateController : MonoBehaviour
         if(bluematch && redmatch && yellowmatch)
         {
             clear.SetActive(true);
-            key.SetActive(true);
-            clearDoor.SetActive(true);
+            doorAndKey.SetActive(true);
         }
     }
 }
