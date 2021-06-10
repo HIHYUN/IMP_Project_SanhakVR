@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    [SerializeField]
     private List<AudioSource> _effectAudioSources = new List<AudioSource>();
     public List<AudioSource> effectAudioSources
     {
         get => _effectAudioSources;
     }
 
-    [SerializeField]
     private List<AudioSource> _musicAudioSources = new List<AudioSource>();
     public List<AudioSource> musicAudioSources
     {
         get => _musicAudioSources;
     }
 
-    public void EffectVolumeMove(float move)
+    public void EffectVolumeMove(float volume)
     {
-        VolumeMove(effectAudioSources, move);
+        VolumeMove(effectAudioSources, volume);
     }
 
-    public void MusicVolumeMove(float move)
+    public void MusicVolumeMove(float volume)
     {
-        VolumeMove(musicAudioSources, move);
+        VolumeMove(musicAudioSources, volume);
     }
 
     public void AddEffect(AudioSource source)
@@ -38,16 +36,9 @@ public class SoundManager : Singleton<SoundManager>
         musicAudioSources.Add(source);
     }
 
-    public float vol;
-
     private void VolumeMove(List<AudioSource> target, float volume)
     {
         if (target.Count > 0)
-            target.ForEach(source =>
-            {
-                if (source == null) return;
-                source.volume += volume;
-                vol = source.volume;
-            });
+            target.ForEach(effectSource => effectSource.volume = volume);
     }
 }
