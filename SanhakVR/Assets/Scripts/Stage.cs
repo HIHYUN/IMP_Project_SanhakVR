@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
+    public ClearUI clearUI;
+    private GUIManager guiManager; 
+
     [SerializeField]
     private string _stageName;
     public string stageName
@@ -46,6 +49,9 @@ public class Stage : MonoBehaviour
         StageController.Instance.AddStage(this);
         StageController.Instance.activeStage = this;
         StageController.Instance.stageState = (StageController.StageState)stageNum;
+
+        guiManager = FindObjectOfType<GUIManager>();
+        clearUI = FindObjectOfType<ClearUI>();
     }
 
     private void Update()
@@ -59,9 +65,11 @@ public class Stage : MonoBehaviour
             if (!isDone)
             {
                 isDone = true;
-                StageController.Instance.MoveNext();
+                if (guiManager != null)
+                    guiManager.Clear();
+
+                clearUI.gameObject.SetActive(true);
             }
-            
         }
     }
 

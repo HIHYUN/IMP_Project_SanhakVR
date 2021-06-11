@@ -43,8 +43,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9127107ebd001845afff3523cd25541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStream: {fileID: 1296471564919220288, guid: 84f8daecec1a56448b27e7ea8e6d66fe,
-    type: 3}
+  ButtonPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4436299492230079710, guid: 6e022706b14b9d9499a54feafd13a882,
+          type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ControllerPrefabs:
   - {fileID: 7634514334346526944, guid: 0540e32b498ef284f8e1dcf80dfccd58, type: 3}
   - {fileID: 4245457492171364763, guid: c836783e3928a624e9ff9c70d4f21606, type: 3}
@@ -55,6 +69,7 @@ MonoBehaviour:
   - {fileID: 357722411443781339, guid: aafefdd564a300c4d93806fdc271c41f, type: 3}
   - {fileID: 5928091942230486030, guid: c4b9c875ed967534eb12cd57aeeb1183, type: 3}
   - {fileID: 6654152787936889342, guid: 61e60013ce1d7d942b8975c98fdf8154, type: 3}
+  button: 0
   ControllerCharacteristic: 320
   showController: 0
   handmodelPrefabs: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,

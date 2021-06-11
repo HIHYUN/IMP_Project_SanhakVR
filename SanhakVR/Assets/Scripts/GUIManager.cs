@@ -6,80 +6,94 @@ using UnityEngine.XR;
 
 public class GUIManager : MonoBehaviour
 {
-
     public List<HandPresence> ButtonHandler = new List<HandPresence>();
     public char ButtonInspector = ' ';
     public GameObject Prefab_UI;
     public GameObject Prefab_Start;
     public GameObject Prefab_Clear;
-    public GameObject Prefab_Setting;
     private bool flag = false;
 
-    private GameObject obj_UI;
-    private GameObject obj_menu;
-    private GameObject obj_start;
+    private bool isLeftInit = false;
+    private bool isRightInit = false;
+
+    private GameObject obj_UI = null;
+    private GameObject obj_start = null;
 
     
-    private void Start () {
-        
-        
-        isStartStage();
-        foreach(HandPresence b in ButtonHandler) {
+    private void Start () 
+    {
+        IsStartStage();
+    }
 
-            b.ButtonPress.AddListener(onButtonEvent);
+    public void HandInit(HandPresence hand)
+    {
+        if (hand.name == "LeftHandPresence")
+            isLeftInit = true;
+        else
+            isRightInit = true;
 
-        }
+        ButtonHandler.Add(hand);
+        hand.ButtonPress.AddListener(OnButtonEvent);
+    }
 
+    public bool IsInit()
+    {
+        return isLeftInit && isRightInit;
     }
     
-    private void Update () {
-
-    }
-    
-    void isStartStage() {
+    void IsStartStage() {
 
         if (Prefab_Start != null && obj_start == null) {
 
-            obj_start = Instantiate(Prefab_Start);
+            obj_start = Prefab_Start;
+            Prefab_Start.gameObject.SetActive(true);
             flag = true;
 
         }
     }
-    void onButtonEvent(char input) {
+    void OnButtonEvent(char input)
+    {
+        print(input);
 
         ButtonInspector = input;
-        if (input != ' ' && obj_start != null) {
-
+        if (input != ' ' && obj_start != null)
+        {
             Destroy(obj_start);
             flag = false;
 
         }
         
-        if (input == 'A' && !flag) {
-
-            if (obj_UI == null) obj_UI = Instantiate(Prefab_UI);
-            if (obj_UI != null) Destroy(obj_UI);
+        if (input == 'A' && !flag)
+        {
+            if (obj_UI == null) 
+                obj_UI = Instantiate(Prefab_UI);
+            
+            else
+                Destroy(obj_UI);    
             
         }
-        if (input == 'B' && !flag) {
 
-            if (obj_menu == null) obj_menu = Instantiate(Prefab_Setting);
-            if (obj_menu != null) Destroy(obj_menu);
+        if (input == 'X' && !flag)
+        {
 
+            SoundManager.Instance.EffectVolumeMove(-Time.deltaTime * 0.1f);
         }
 
+        if (input == 'Y' && !flag)
+        {
+            SoundManager.Instance.EffectVolumeMove(+Time.deltaTime * 0.1f);
+        }
     }
-    void Clear () {
-
-        Instantiate(Prefab_Clear);
+    public void Clear () 
+    {
+        Prefab_Clear.gameObject.SetActive(true);
         Invoke("NextStage", 5.0f);
 
     }
 
-    void NextStage () {
-
-        // GameManger ->
-
+    void NextStage () 
+    {
+        StageController.Instance.MoveNext();
     }
 
 }

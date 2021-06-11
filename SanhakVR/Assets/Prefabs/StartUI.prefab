@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 1884796369444025247}
   - component: {fileID: 1884796369444025244}
   - component: {fileID: 1884796369444025245}
+  - component: {fileID: 7528274951718338531}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -101,9 +102,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884796369444025251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.62475526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1884796368372818884}
   - {fileID: 1884796369675030577}
@@ -114,9 +115,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 620.6929, y: 181.07944}
+  m_SizeDelta: {x: 1238, y: 367}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1884796369444025247
 Canvas:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ Canvas:
   m_GameObject: {fileID: 1884796369444025251}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1884796369444025245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7528274951718338531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884796369444025251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbd89239bc878c448c779d9c5371f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884796369449767017
 GameObject:
   m_ObjectHideFlags: 0
