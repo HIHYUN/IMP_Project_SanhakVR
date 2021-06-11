@@ -6,14 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class MatchToTrigger : MonoBehaviour
 {
-    private XRGrabInteractable interactable;
-    public XRBaseController controller;
+    
     private string matchtag;
-
-    private void Start()
+    private void Start() 
     {
-        interactable = GetComponent<XRGrabInteractable>();
-
         switch(this.name)
         {
             case "Red Cube":
@@ -32,22 +28,15 @@ public class MatchToTrigger : MonoBehaviour
                 break;
         }
     }
-
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == matchtag)
         {
+            Destroy(this.gameObject);
             Color color = other.gameObject.transform.GetComponent<Renderer>().material.color;
             color.a = 1;
             other.gameObject.GetComponent<Renderer>().material.color = color;
             GameObject.Find("Sign").GetComponent<TriggerCubeManager>().score++;
-
-            gameObject.SetActive(false);
         }
-    }
-
-    public void SetController(XRBaseController controller)
-    {
-        this.controller = controller;
     }
 }

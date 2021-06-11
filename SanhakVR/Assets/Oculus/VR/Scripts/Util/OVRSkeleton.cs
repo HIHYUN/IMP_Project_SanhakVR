@@ -573,7 +573,6 @@ public class OVRSkeleton : MonoBehaviour
 	}
 }
 
-[System.Serializable]
 public class OVRBone
 {
 	public OVRSkeleton.BoneId Id { get; set; }
